@@ -5,7 +5,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "backend": "cd ../ && gradlew.bat bootRun",
+    "frontend": "vue-cli-service serve",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
@@ -26,6 +29,7 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-prettier": "^9.0.0",
+    "concurrently": "^8.2.2",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.7.1",
     "vue-cli-plugin-vuetify": "~2.5.8",

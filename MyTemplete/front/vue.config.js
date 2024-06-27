@@ -14,9 +14,14 @@ module.exports = defineConfig({
       '/': {
         target: 'http://localhost:8080', // 백엔드 서버의 주소
         changeOrigin: true,
-        ws: true, // WebSocket 지원 추가
+        ws: false, // WebSocket 지원 추가
         pathRewrite: { '^/': '' },
       },
     },
   },
+
+  chainWebpack: config => {
+    config.plugins.delete('prefetch'); // prefetch 기능 비활성화
+  },
+
 })

@@ -1,19 +1,19 @@
 <template>
   <v-app>
     <v-main>
-      <HomePage/>
+      <LoginPage/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HomePage from './components/HomePage.vue'
+import LoginPage from './layout/login/LoginPage.vue'
 
 export default {
   name: 'App',
 
   components: {
-    HomePage,
+    LoginPage,
   },
 
   data: () => ({

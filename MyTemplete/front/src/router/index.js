@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/components/HomePage.vue';
+import LoginPage from '@/layout/login/LoginPage.vue';
 
 const routes = [
   {
@@ -7,7 +8,11 @@ const routes = [
     name: 'home',
     component: HomePage
   },
-  // 다른 라우터 설정이 있다면 여기에 추가
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginPage,
+  },
 ];
 
 const router = createRouter({

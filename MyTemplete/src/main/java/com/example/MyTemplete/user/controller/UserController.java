@@ -1,20 +1,24 @@
 package com.example.MyTemplete.user.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.MyTemplete.user.model.UserVO;
+import com.example.MyTemplete.user.dto.UserDTO;
 import com.example.MyTemplete.user.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
-
-    @GetMapping("/user")
-    public UserVO getUserById(@RequestParam String userId) {
-        return userService.getUserById(userId);
+    
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserDTO user) {
+        UserDTO loggedInUser = userService.login(user.getUserId(), user.getUserPassword());
+        if (loggedInUser != null) {
+            return ResponseEntity.ok(loggedInUser);
+        } else {
+            return ResponseEntity.status(401).body("Invalid credentials");
+        }
     }
 }
