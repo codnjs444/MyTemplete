@@ -1,23 +1,17 @@
 <template>
   <v-app>
     <v-main>
-      <LoginPage/>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import LoginPage from './layout/login/LoginPage.vue'
-
 export default {
   name: 'App',
-
-  components: {
-    LoginPage,
-  },
-
-  data: () => ({
-    //
-  }),
-}
+};
 </script>
+
+<style>
+/* 필요한 스타일 추가 */
+</style>

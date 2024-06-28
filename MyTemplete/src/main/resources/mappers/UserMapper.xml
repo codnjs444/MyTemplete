@@ -8,4 +8,9 @@
         WHERE userId = #{userId}
     </select>
 
+    <insert id="saveUser" parameterType="com.example.MyTemplete.user.dto.UserDTO">
+        INSERT INTO user (userId, userPassword, userName, userEmail)
+        VALUES (#{userId}, #{userPassword}, #{userName}, #{userEmail})
+    </insert>
+
 </mapper>

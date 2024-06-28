@@ -27,7 +27,7 @@
                 </v-form>
               </v-card-text>
               <v-card-actions class="justify-center">
-                <v-btn text class="signup-link">계정이 없으신가요? 회원 가입</v-btn>
+                <v-btn text class="signup-link" @click="goToJoin">계정이 없으신가요? 회원 가입</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -60,12 +60,16 @@
             userPassword: this.userPassword,
           });
           console.log(response.data);
+          localStorage.setItem('token', response.data);
           alert('Login successful');
-          this.router.push('/');
+          this.router.push('/home');
         } catch (error) {
           console.error('Login failed', error);
           alert('Login failed');
         }
+      },
+      goToJoin(){
+        this.router.push('/join')
       },
     },
   };
